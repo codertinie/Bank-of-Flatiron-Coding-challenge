@@ -17,6 +17,14 @@ function handleChange(e){ // to change the state which is handle change
     e.preventDefault()
     //handle submission
     onSubmission(formData)
+    setformData( //this will clear the form
+      {
+        date: "",
+        category:"",
+        amount: 0,
+        description: ""
+      }
+    )
   }
   return (
     <div className="ui segment">

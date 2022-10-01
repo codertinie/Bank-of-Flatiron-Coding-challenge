@@ -32,14 +32,18 @@ function handleUpdate(newTransaction){
   //ensures the data persists
   fetch("http://localhost:8001/transactions", serverOptions)// pass it as second argument
   .then(resp => resp.json())
-  .then(newItem => setTransactions(transactions => [...transactions, newItem]))
+  .then(newItem => setTransactions(transactions => [...transactions, newItem])) // t add the data to server
 }
 
+  function handleSearching(search){
+    //filter
+    setTransactions(transactions => transactions.filter(transaction => transaction.description.includes(search)))
+  }
 
 
   return (
     <div>
-      <Search />
+      <Search onSearching={handleSearching}/>
       <AddTransactionForm onSubmission={handleUpdate}/>
       <TransactionsList transactions={transactions}/>
     </div>
