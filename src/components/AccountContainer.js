@@ -19,8 +19,24 @@ useEffect(() => {
 
 function handleUpdate(newTransaction){
   console.log(newTransaction) // check for errors
-  setTransactions(transactions => [...transactions, newTransaction])//add it to transactions
+  //add it to transactions
+// add a new post to add data to server
+//Post requires server options
+  const serverOptions = {
+    method : "POST",
+    headers: {
+      "content-Type": "application/json"
+    },
+    body: JSON.stringify(newTransaction)
+  }
+  //ensures the data persists
+  fetch("http://localhost:8001/transactions", serverOptions)// pass it as second argument
+  .then(resp => resp.json())
+  .then(newItem => setTransactions(transactions => [...transactions, newItem]))
 }
+
+
+
   return (
     <div>
       <Search />

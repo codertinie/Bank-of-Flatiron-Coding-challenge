@@ -83,6 +83,20 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2022-10-13",
+      "category": "Food",
+      "amount": "35",
+      "description": "Choma Smokie",
+      "id": 13
+    },
+    {
+      "date": "2022-10-05",
+      "category": "Learning",
+      "amount": 0,
+      "description": "Rehearsed React components",
+      "id": 14
     }
   ]
 }
