@@ -17,11 +17,14 @@ useEffect(() => {
     // console.log(transac)) // to confirm the fetch works
 },[]) // pass dependency array
 
-
+function handleUpdate(newTransaction){
+  console.log(newTransaction) // check for errors
+  setTransactions(transactions => [...transactions, newTransaction])//add it to transactions
+}
   return (
     <div>
       <Search />
-      <AddTransactionForm />
+      <AddTransactionForm onSubmission={handleUpdate}/>
       <TransactionsList transactions={transactions}/>
     </div>
   );
